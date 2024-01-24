@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'questionario3.dart';
 
 class Questionario2Screen extends StatefulWidget {
   @override
@@ -109,7 +110,11 @@ class _Questionario2ScreenState extends State<Questionario2Screen> {
                 width: 360.0,
                 child: ElevatedButton(
                   onPressed: () {
-                    print("Verificar pressed!");
+                    // Navigate to Questionario3Screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Questionario3Screen()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 255, 17, 0),
