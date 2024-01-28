@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'questionario1.dart'; // Import the QuestionElegibScreen file
+import 'mapa.dart'; // Import the QuestionElegibScreen file
+
 
 class RedButton extends StatelessWidget {
   final String buttonText;
@@ -41,6 +43,15 @@ class RedButton extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => QuestionElegibScreen(),
+        ),
+      );
+    }
+
+    if (buttonText == 'Localize pontos de doação') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MapScreen(),
         ),
       );
     }
