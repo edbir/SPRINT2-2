@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 class SignUpScreen extends StatelessWidget {
   final TextEditingController _firstNameController = TextEditingController();
@@ -78,13 +79,13 @@ class SignUpScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 12),
               ),
               onPressed: () {
-                // Implemente a lógica de cadastro
+                 Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginScreen()));
               },
               child: Text('Cadastrar'),
             ),
             TextButton(
               onPressed: () {
-                // Implemente a lógica para ir para a tela de login
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginScreen()));
               },
               child: Text(
                 'Já tem uma conta? Faça Log In',

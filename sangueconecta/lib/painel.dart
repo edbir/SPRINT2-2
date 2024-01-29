@@ -1,83 +1,110 @@
 import 'package:flutter/material.dart';
 import 'questionario1.dart'; // Import the QuestionElegibScreen file
 import 'mapa.dart'; // Import the QuestionElegibScreen file
+import 'noticias.dart';
 
-
-class RedButton extends StatelessWidget {
-  final String buttonText;
-
-  RedButton({required this.buttonText});
-
+class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 360.0,
-      child: ElevatedButton(
-        onPressed: () {
-          handleButtonPress(context);
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(255, 255, 17, 0),
-          padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 50.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-        ),
-        child: Text(
-          buttonText,
-          style: TextStyle(
-            fontSize: 22.0,
-            color: Colors.white,
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.0), // Mantém o padding igual ao da tela de cadastro
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: 16), // Espaçamento no topo
+              CircleAvatar(
+                radius: 50, // Tamanho do círculo
+                backgroundColor: Colors.purple, // Cor do background do CircleAvatar
+                child: Icon(
+                  Icons.person,
+                  size: 50,
+                  color: Colors.white, // Cor do ícone
+                ),
+              ),
+              SizedBox(height: 16), // Espaçamento entre o avatar e o texto
+              Text(
+                'Olá, Maria',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 32), // Espaçamento entre o texto e o primeiro botão
+              // Repita o mesmo para os outros botões
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  onPrimary: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 32),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  minimumSize: Size(double.infinity, 50), // Largura máxima
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => QuestionElegibScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Verifique sua Elegibilidade',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+              SizedBox(height: 16),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  onPrimary: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 32),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  minimumSize: Size(double.infinity, 50), // Largura máxima
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => SelectHemocentroScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Localize os pontos de doação',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+              SizedBox(height: 16),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  onPrimary: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 32),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  minimumSize: Size(double.infinity, 50), // Largura máxima
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => NewsScreen(),
+                      ),
+                    );
+                },
+                child: Text(
+                  'Conteúdos e Compartilhamento',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+            ],
           ),
         ),
       ),
-    );
-  }
-
-  void handleButtonPress(BuildContext context) {
-    print('$buttonText Button Pressed!');
-
-    // Navigate to QuestionElegibScreen if the button is "Verifique sua Elegibilidade"
-    if (buttonText == 'Verifique sua Elegibilidade') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => QuestionElegibScreen(),
-        ),
-      );
-    }
-
-    if (buttonText == 'Localize pontos de doação') {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => MapScreen(),
-        ),
-      );
-    }
-    // Add other conditions for different button texts if needed
-  }
-}
-
-class RedButtonColumn extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        RedButton(
-          buttonText: 'Verifique sua Elegibilidade',
-        ),
-        SizedBox(height: 50.0),
-        RedButton(
-          buttonText: 'Localize pontos de doação',
-        ),
-        SizedBox(height: 50.0),
-        RedButton(
-          buttonText: 'Conteúdos e Compartilhamento',
-        ),
-      ],
     );
   }
 }

@@ -6,7 +6,7 @@ class QuestionElegibScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //title: Text('Questionário de Elegibilidade'),
+        title: Text('Questionário de Elegibilidade'),
       ),
       body: Center(
         child: Stack(
@@ -16,14 +16,14 @@ class QuestionElegibScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 20.0),
-                Text(
-                  'Questionário de Elegibilidade',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                // SizedBox(height: 20.0),
+                // Text(
+                //   'Questionário de Elegibilidade',
+                //   style: TextStyle(
+                //     fontSize: 30.0,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
                 SizedBox(height: 60.0),
                 Image.asset(
                   'assets/logo.png',
