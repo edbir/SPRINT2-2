@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'questionario4.dart'; // substitui esse import e o redirecionamento do botão para a tela do mapa ao inves de questionario4
+import 'mapa.dart'; // Substitua pelo caminho correto do arquivo da tela do mapa
 
 class Questionario3Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
+        title: Text('Elegibilidade Confirmada'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -20,55 +22,43 @@ class Questionario3Screen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 50.0),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Você está apto a doar!',
-                    style: TextStyle(
-                      fontSize: 26.0,
-                    ),
-                  ),
-                  SizedBox(height: 20.0),
-                  Text(
-                    'Verifique os locais de doação e agende uma doação.',
-                    style: TextStyle(
-                      fontSize: 22.0,
-                    ),
-                  ),
-                  SizedBox(height: 20.0),
-                  Positioned(
-              bottom: 6.0,
-              child: Container(
-                width: 360.0,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Navigate to Questionario3Screen
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Questionario4Screen()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 255, 17, 0),
-                    padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                  ),
-                  child: Text(
-                    'Continuar',
-                    style: TextStyle(
-                      fontSize: 22.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+            SizedBox(height: 24.0),
+            Text(
+              'Você está apto a doar!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 26.0,
               ),
             ),
-                ],
+            SizedBox(height: 24.0),
+            Text(
+              'Verifique os locais de doação e agende uma doação.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 22.0,
+              ),
+            ),
+            SizedBox(height: 48.0),
+            ElevatedButton(
+              onPressed: () {
+                // Navegar para a tela do mapa
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SelectHemocentroScreen()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red, // Cor de fundo do botão
+                onPrimary: Colors.white, // Cor do texto do botão
+                padding: EdgeInsets.symmetric(vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10), // Borda arredondada
+                ),
+                minimumSize: Size(double.infinity, 50), // Largura máxima
+              ),
+              child: Text(
+                'Continuar',
+                style: TextStyle(fontSize: 18),
               ),
             ),
           ],
@@ -77,3 +67,5 @@ class Questionario3Screen extends StatelessWidget {
     );
   }
 }
+
+// Certifique-se de que a classe SelectHemocentroScreen esteja implementada e disponível para navegação.
